@@ -15,8 +15,8 @@ journalController.create = async (req, res) => {
         }
         
         const newPost = await models.post.create({
-            title: req.body.title,
-            description: req.body.description
+            date: req.body.date,
+            entry: req.body.entry
         })
         await user.addPost(newPost)
         await newPost.reload()
@@ -27,7 +27,7 @@ journalController.create = async (req, res) => {
     }
 }
 
-journalController.getAllPosts = async (req, res) => {
+journalController.getJournal = async (req, res) => {
     try {
         let allPosts = await models.post.findAll({include:models.user})
         //I wanted to add user's name along with post's title that's why I am using include

@@ -4,7 +4,9 @@ const userController = require('../controllers/userController')
 
 userRoutes.post('/', userController.create)
 userRoutes.post('/login', userController.login)
-userRoutes.post('/journal', userController.journal)
+userRoutes.get('/', userController.getAll)
+userRoutes.get('/verify', userController.verify)
+// userRoutes.post('/journal', userController.journal)
 
 
 module.exports = userRoutes
